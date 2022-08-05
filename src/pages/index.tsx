@@ -1,8 +1,7 @@
 import { Flex, Text, Input, SimpleGrid, Button as ChakraButton } from '@chakra-ui/react'
 
 import type { NextPage } from 'next'
-
-import { useState } from 'react';
+import Link from 'next/link';
 
 import { useUserName } from '../hooks/useUserName';
     
@@ -10,8 +9,7 @@ import { useUserName } from '../hooks/useUserName';
 const Home: NextPage = () => {
     
   const { setUserName, onToggle } = useUserName();
-  const [buttonIsLoading, setButtonIsLoading] = useState<boolean>(false);
-  
+
   return (
     <Flex
       border="0"
@@ -46,17 +44,18 @@ const Home: NextPage = () => {
               />
               
               <Flex justifyContent="center">
-                  <ChakraButton
-                    
-                    width="min"
-                    bgColor="gray.300"
-                    _hover={{bg: "primary.300"}}
-                    _focus={{bg: "primary.900" }}
-                    type="submit"
-                    onClick={() => onToggle()}
-                  >
-                    Revelar cartas
-                  </ChakraButton>
+                  <Link href="/randcards">
+                    <ChakraButton
+                      
+                      width="min"
+                      bgColor="gray.300"
+                      _hover={{bg: "primary.300"}}
+                      _focus={{bg: "primary.900" }}
+                      type="submit"
+                    >
+                      Revelar cartas
+                    </ChakraButton>
+                  </Link>
               </Flex>
               </SimpleGrid>
         </SimpleGrid>
