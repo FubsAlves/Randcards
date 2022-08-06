@@ -11,57 +11,57 @@ const Home: NextPage = () => {
   const { setUserName } = useUserName();
 
   return (
-    <Flex
-      border="4px"
-      borderColor="secondary.500"
-      borderRadius="2xl"
-      boxShadow="2xl"
-      position="absolute"
-      left="25vw"
-      top="25vh"
-      alignItems="center" 
-      bg="white" 
-      justifyContent="center" 
-      height="50vh" 
-      width="50vw">
+    
+    <Flex height="90vh" alignItems="center" justifyContent="center">
+        <Flex
+              border="2px"
+              borderColor="secondary.500"
+              borderRadius="2xl"
+              boxShadow="md"
+              alignItems="center" 
+              bg="white" 
+              justifyContent="center" 
+              height="50vh" 
+              width="25vw">
 
-        <SimpleGrid spacingY="2rem">
-            <SimpleGrid spacingY="1rem">
-              <Text fontSize="xl">Seja muito bem-vindo ao Randcards!</Text>
-              <Text fontSize="xl" align="center">Digite seu nome abaixo:</Text>
-            </SimpleGrid>
+                <SimpleGrid spacingY="2rem">
+                    <SimpleGrid spacingY="1rem">
+                      <Text align="center" fontSize="xl" fontWeight="bold">Randcards</Text>
+                      <Text fontSize="xl">Seja muito bem-vindo ao Randcards!</Text>
+                      <Text fontSize="xl" align="center">Digite seu nome abaixo:</Text>
+                    </SimpleGrid>
 
-              <SimpleGrid spacingY="3rem">
-              <Input
-                type="text"
-                id='username'
-                placeholder="Nome"
-                textAlign="center"
-                fontWeight="bold"
-                _hover={{borderColor: "primary.300"}}
-                focusBorderColor="primary.500"
-                onChange={(e) => {
-                  setUserName(e.target.value);
-                }}
-              />
-              
-              <Flex justifyContent="center">
-                  <Link href="/randcards">
-                    <ChakraButton
+                      <SimpleGrid spacingY="3rem">
+                      <Input
+                        type="text"
+                        id='username'
+                        placeholder="Nome"
+                        textAlign="center"
+                        fontWeight="bold"
+                        _hover={{borderColor: "primary.300"}}
+                        focusBorderColor="primary.500"
+                        onChange={(e) => {
+                          setUserName(e.target.value);
+                        }}
+                      />
                       
-                      width="min"
-                      bgColor="gray.300"
-                      _hover={{bg: "primary.300"}}
-                      _focus={{bg: "primary.900" }}
-                      type="submit"
-                    >
-                      Revelar cartas
-                    </ChakraButton>
-                  </Link>
-              </Flex>
-              </SimpleGrid>
-        </SimpleGrid>
-        
+                      <Flex justifyContent="center">
+                          <Link href="/randcards">
+                            <ChakraButton
+                              
+                              width="min"
+                              bgColor="gray.300"
+                              _hover={{bg: "primary.300"}}
+                              _focus={{bg: "primary.900" }}
+                              type="submit"
+                            >
+                              Revelar cartas
+                            </ChakraButton>
+                          </Link>
+                      </Flex>
+                      </SimpleGrid>
+                </SimpleGrid>
+        </Flex>
     </Flex>
   )
 }
