@@ -22,7 +22,7 @@ export const THEME = extendTheme({
         },
 
         secondary: {
-
+            500: "#e2e8f0",
         },
 
         white: "#FFFFFF",

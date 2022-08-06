@@ -1,32 +1,59 @@
 import { Flex, Text, SimpleGrid, Button as ChakraButton } from '@chakra-ui/react';
+import axios from 'axios';
 
 import type { NextPage } from 'next';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRandomCards } from '../../hooks/useRandomCards';
+
+interface CardProps {
+  link: string;
+  image: string;
+  name: string;
+  description: string;
+  points: number;
+}
     
 const Randomcards: NextPage = () => {
   const { cards, setCards } = useRandomCards();
+  const cardSize = useRef<number>(cards.length);
 
-  async function fetchCards() {
-    const newCard = await fetch("https://randomfox.ca/floof/")
-    .then((res) => res.json())
+  async function fetchFiveCardOnce(cards: CardProps[]) {
+    if(cardSize.current > 3) {
+      return;
+    }
+    else {
+      await fetchCard();
+      console.log(cardSize);
+      fetchFiveCardOnce(cards);
+    }
+
+  }
+
+  async function fetchCard() {
+    const fetchedCard = await axios.get("https://randomfox.ca/floof/")
+    .then((res) => res.data)
     .then((data) => {
-        data.name = "Fubs";
-        data.description = "AUAUAU";
-        data.points = Math.floor(Math.random() * 10) + 1;
-        return data;
-    });    
-    
-    console.log(cards);
+      data.name = "Fubs";
+      data.description = "AUAU";
+      data.points = Math.floor(Math.random() * 10) + 1;
+      return data;
+    }); 
+
+    setCards((cards: CardProps[]) => [...cards, fetchedCard]);
 
   }
 
   useEffect(() => {
     
-    fetchCards();
+    fetchFiveCardOnce(cards);  
 
   }, []);
+
+  useEffect(() => {
+    console.log(cards);
+    cardSize.current = cards.length;
+  }, [cards])
 
   return (
     <Flex
@@ -41,6 +68,13 @@ const Randomcards: NextPage = () => {
       height="50vh" 
       width="50vw">
         
+        {
+          cards.map( (card : any) => (
+            <img key={card.link} src={card.image} alt="AUAU" width="250px" height="250px" />
+          )
+            
+          )
+        }
     </Flex>
   )
 }

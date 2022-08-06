@@ -8,12 +8,14 @@ import { useUserName } from '../hooks/useUserName';
 
 const Home: NextPage = () => {
     
-  const { setUserName, onToggle } = useUserName();
+  const { setUserName } = useUserName();
 
   return (
     <Flex
-      border="0"
+      border="4px"
+      borderColor="secondary.500"
       borderRadius="2xl"
+      boxShadow="2xl"
       position="absolute"
       left="25vw"
       top="25vh"
