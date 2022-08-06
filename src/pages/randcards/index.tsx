@@ -56,25 +56,28 @@ const Randomcards: NextPage = () => {
   }, [cards])
 
   return (
-    <Flex
-      border="0"
-      borderRadius="2xl"
-      position="absolute"
-      left="25vw"
-      top="25vh"
-      alignItems="center" 
-      bg="white" 
-      justifyContent="center" 
-      height="50vh" 
-      width="50vw">
-        
-        {
-          cards.map( (card : any) => (
-            <img key={card.link} src={card.image} alt="AUAU" width="250px" height="250px" />
-          )
-            
-          )
-        }
+    
+    <Flex height="90vh" alignItems="center" justifyContent="center">
+        <Flex
+          border="2px"
+          borderColor="secondary.500"
+          borderRadius="2xl"
+          boxShadow="md"
+          alignItems="center" 
+          bg="white" 
+          justifyContent="center" 
+          height="90vh" 
+          width="75vw"
+        >
+          
+          {
+            cards.map( (card : any) => (
+              <img key={card.link} src={card.image} alt="AUAU" width="150px" height="150px" />
+            )
+              
+            )
+          }
+      </Flex>
     </Flex>
   )
 }
