@@ -1,37 +1,34 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 
-
 interface RandomCardsProviderProps {
   children: ReactNode;
 }
 
-interface CardsProps {
-    link: string;
-    name: string;
-    description: string;
-    points: number;
+interface CardProps {
+  link: string;
+  image: string;
+  name: string;
+  description: string;
+  points: number;
 }
 
-
 interface RandomCardsContextData {
-  cards: CardsProps[];
-  setCards: (value: []) => void;
+  cards: any;
+  setCards: any;
 }
 
 const RandomCardsContext = createContext<RandomCardsContextData>({} as RandomCardsContextData);
 
 export function RandomCardsProvider({ children }: RandomCardsProviderProps): JSX.Element {
-  const [cards, setCards] = useState<CardsProps[] | []>([]);
+  const [cards, setCards] = useState<CardProps[] | []>([]);
   return (
     <RandomCardsContext.Provider
-      value={{cards, setCards}}
+      value={{ cards, setCards }}
     >
       {children}
     </RandomCardsContext.Provider>
   );
-  
-  };
-
+}
 
 export function useRandomCards(): RandomCardsContextData {
   const context = useContext(RandomCardsContext);

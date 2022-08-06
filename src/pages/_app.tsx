@@ -3,16 +3,19 @@ import type { AppProps } from 'next/app';
 import { useState } from 'react';
 import { Header } from '../Header';
 import { UserNameProvider } from '../hooks/useUserName';
+import { RandomCardsProvider } from '../hooks/useRandomCards';
 import { THEME } from '../styles/theme';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <UserNameProvider>
-      <ChakraProvider theme={THEME}>
-          <Header/>
-          <Component {...pageProps} />
-      </ChakraProvider>
-    </UserNameProvider>
+    <RandomCardsProvider>
+      <UserNameProvider>
+        <ChakraProvider theme={THEME}>
+            <Header/>
+            <Component {...pageProps} />
+        </ChakraProvider>
+      </UserNameProvider>
+    </RandomCardsProvider>
   ) 
 }
 
