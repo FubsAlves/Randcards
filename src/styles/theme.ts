@@ -4,7 +4,7 @@ export const THEME = extendTheme({
     styles: {
         global: (props: { colorMode: string; }) => ({
           'html, body': {
-            bg: "#ECF0F3",
+            bg: "ECF0F3",
           },
         })
     },

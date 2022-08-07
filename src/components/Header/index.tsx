@@ -1,7 +1,7 @@
 import { Flex, Box, Text, Fade } from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 
-import { useUserName } from '../hooks/useUserName';
+import { useUserName } from '../../hooks/useUserName';
 
 export function Header() {
     const {userName, isOpen, onToggle} = useUserName(); 
