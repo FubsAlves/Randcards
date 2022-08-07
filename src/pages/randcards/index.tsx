@@ -1,5 +1,8 @@
 import { Flex, Text, SimpleGrid, Button as ChakraButton } from '@chakra-ui/react';
+
 import axios from 'axios';
+
+import { loremIpsum } from "lorem-ipsum";
 
 import type { NextPage } from 'next';
 
@@ -34,8 +37,8 @@ const Randomcards: NextPage = () => {
     const fetchedCard = await axios.get("https://randomfox.ca/floof/")
     .then((res) => res.data)
     .then((data) => {
-      data.name = "Fubs";
-      data.description = "AUAU";
+      data.name = loremIpsum();
+      data.description = loremIpsum();
       data.points = Math.floor(Math.random() * 10) + 1;
       return data;
     }); 
@@ -70,13 +73,7 @@ const Randomcards: NextPage = () => {
           width="75vw"
         >
           
-          {
-            cards.map( (card : any) => (
-              <img key={card.link} src={card.image} alt="AUAU" width="150px" height="150px" />
-            )
-              
-            )
-          }
+          
       </Flex>
     </Flex>
   )
