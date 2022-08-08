@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { loremIpsum } from 'lorem-ipsum';
 import { nanoid } from 'nanoid';
-import { createContext, ReactNode, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, MutableRefObject, ReactNode, useContext, useEffect, useRef, useState } from 'react';
 
 interface RandomCardsProviderProps {
   children: ReactNode;
@@ -18,13 +18,13 @@ interface CardProps {
 
 interface RandomCardsContextData {
   cards: CardProps[];
-  fetchCard: any;
+  fetchCard: () => void;
   cardsLoading: boolean;
   viewingCards: boolean;
-  setViewingCards: any;
-  setCards: any;
-  setCardsLoading: any;
-  cardSize: any;
+  setViewingCards: (value: boolean) => void;
+  setCards: (value: CardProps[]) => void;
+  setCardsLoading: (value: boolean) => void;
+  cardSize: MutableRefObject<number>;
 }
 
 const RandomCardsContext = createContext<RandomCardsContextData>({} as RandomCardsContextData);

@@ -4,17 +4,9 @@ import { Card } from '../Card';
 
 import { useRandomCards } from '../../hooks/useRandomCards';
 
-interface CardProps {
-        id: string;
-        link: string;
-        image: string;
-        name: string;
-        description: string;
-        points: number;
-}
 
 export function CardWindow() {
-  const { cards, setCards, fetchCard } = useRandomCards();
+  const { cards, fetchCard } = useRandomCards();
   const [cardsLoading, setcardsLoading] = useState<boolean>(true);
   
   async function fetchFiveCardOnce() {
