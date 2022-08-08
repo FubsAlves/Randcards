@@ -25,14 +25,14 @@ const Home: NextPage = () => {
               alignItems="center" 
               bg="white" 
               justifyContent="center" 
-              height="50vh" 
-              width="25vw">
+              minH={{base: "75vh", sm: "50vh", md: "50vh", lg: "50vh"}} 
+              minW={{base: "75vw", sm: "60vw", md: "60vw", lg: "50vw"}}>
 
                 <SimpleGrid spacingY="2rem">
-                    <SimpleGrid spacingY="1rem">
-                      <Text align="center" fontSize="xl" fontWeight="bold">Randcards</Text>
-                      <Text fontSize="xl">Seja muito bem-vindo ao Randcards!</Text>
-                      <Text fontSize="xl" align="center">Digite seu nome abaixo:</Text>
+                    <SimpleGrid spacingY="1rem" textAlign="center" fontSize="xl">
+                      <Text fontWeight="bold">Randcards</Text>
+                      <Text>Seja muito bem-vindo ao Randcards!</Text>
+                      <Text align="center">Digite seu nome abaixo:</Text>
                     </SimpleGrid>
 
                       <SimpleGrid spacingY="3rem">

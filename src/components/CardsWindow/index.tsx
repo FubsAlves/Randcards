@@ -1,12 +1,7 @@
 import { Flex, Grid, Spinner } from '@chakra-ui/react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Card } from '../Card';
 
-
-import axios from 'axios';
-
-import { loremIpsum } from "lorem-ipsum";
-import { nanoid } from 'nanoid'
 import { useRandomCards } from '../../hooks/useRandomCards';
 
 interface CardProps {
@@ -19,8 +14,7 @@ interface CardProps {
 }
 
 export function CardWindow() {
-  const { cards, setCards } = useRandomCards();
-  const cardSize = useRef<number>(cards.length);
+  const { cards, setCards, fetchCard } = useRandomCards();
   const [cardsLoading, setcardsLoading] = useState<boolean>(true);
   
   async function fetchFiveCardOnce() {
@@ -30,56 +24,12 @@ export function CardWindow() {
     setcardsLoading(false);
   }
 
-  async function overMaxCards() {
-    return cardSize.current >= 8 ? true : false;
-  }
-  async function fetchCard() {
-    
-    if(await overMaxCards()) {
-        return;
-    }
-
-    else {
-      const fetchedCard = await axios.get("https://randomfox.ca/floof/")
-      .then((res) => res.data)
-      .then((data) => {
-      
-      data.id = nanoid();
-      data.name = loremIpsum({ 
-        count: 1,
-        paragraphLowerBound: 1,
-        paragraphUpperBound: 1,
-        sentenceLowerBound: 1,
-        sentenceUpperBound: 1 
-      }).replace('.', "");
-
-      data.description = loremIpsum({ 
-        count: 1,
-        paragraphLowerBound: 1,
-        paragraphUpperBound: 3,
-        sentenceLowerBound: 2,
-        sentenceUpperBound: 3 
-      }).replace('.', "");
-
-      data.points = Math.floor(Math.random() * 10) + 1;
-      return data;
-    }); 
-    
-    setCards((cards: CardProps[]) => [...cards, fetchedCard]);    
-
-    }
-  }
 
   useEffect(() => {
     
     fetchFiveCardOnce();  
 
   }, []);
-
-  useEffect(() => {
-    cardSize.current = cards.length;
-    console.log(cardSize.current);  
-  }, [cards])
 
     return (
         

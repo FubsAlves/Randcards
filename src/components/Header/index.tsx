@@ -1,5 +1,5 @@
 import { AddIcon, UpDownIcon } from '@chakra-ui/icons';
-import { Flex, Text, Fade, Button as ChakraButton, Collapse, useBreakpoint } from '@chakra-ui/react';
+import { Flex, Text, Fade, Button as ChakraButton, Collapse, useToast} from '@chakra-ui/react';
 import { useEffect, useRef } from 'react';
 import { useRandomCards } from '../../hooks/useRandomCards';
 
@@ -16,8 +16,9 @@ interface CardProps {
 
 export function Header() {
     const { userName, isOpen, onToggle } = useUserName();
-    const { cards, setCards, viewingCards } = useRandomCards();
+    const { cards, setCards, fetchCard, viewingCards, cardSize } = useRandomCards();
     const prevUserName = useRef(0);  
+    const toastLimitCards = useToast();
 
     function shuffleCards(cards: CardProps[]) {
         let shuffledCards = [...cards];
@@ -45,7 +46,21 @@ export function Header() {
                                 maxW={{base: "5vw", sm: "30vw", md: "20vw"}}
                                 _hover={{bg: "red.400"}}
                                 disabled={!viewingCards}
-                                onClick={() => {}}
+                                onClick={() => {
+                                    if(cardSize.current === 8) {
+                                        toastLimitCards({
+                                            title: "Limite atingido!",
+                                            description: "É permitido apenas 8 cartas",
+                                            status: 'error',
+                                            duration: 5000,
+                                            isClosable: true
+
+                                        })
+                                    }
+                                    else {
+                                        fetchCard();
+                                    }
+                                }}
                                 
                             >
                                 <AddIcon mr="0.2rem" />
