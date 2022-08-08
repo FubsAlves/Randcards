@@ -4,15 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useRandomCards } from '../../hooks/useRandomCards';
 
 import { useUserName } from '../../hooks/useUserName';
-
-interface CardProps {
-    id: string;
-    link: string;
-    image: string;
-    name: string;
-    description: string;
-    points: number;
-  }
+import { CardProps } from '../../types/ICard';
 
 export function Header() {
     const { userName, isOpen, onToggle } = useUserName();

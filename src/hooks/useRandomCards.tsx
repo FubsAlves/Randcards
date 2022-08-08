@@ -71,8 +71,7 @@ export function RandomCardsProvider({ children }: RandomCardsProviderProps): JSX
       return data;
     }); 
     
-    setCards((cards: CardProps[]) => [...cards, fetchedCard]);    
-
+    (cardSize.current < 8) ? setCards((cards: CardProps[]) => [...cards, fetchedCard]) : "";
     }
   }
 

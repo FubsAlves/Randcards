@@ -42,7 +42,7 @@ export function Card({cardRevealed}: CardProps) {
                 
                 <Text fontWeight="bold" fontSize="xl">{cardRevealed.name}</Text>
                 <Text my="0.5rem" fontSize="sm" textAlign="center">{cardRevealed.description}</Text>
-                <Text fontWeight="bold" color="primary.900" alignSelf="end" mr="0.2rem" mb="0.2rem" border="1px" bgColor="white" borderRadius="full" mb="0.2rem" padding="1">{cardRevealed.points}pt</Text>
+                <Text fontWeight="bold" color="primary.900" alignSelf="end" mr="0.2rem" mb="0.2rem" border="1px" bgColor="white" borderRadius="full" padding="1">{cardRevealed.points}pt</Text>
             </Flex>    
         </>
     )

@@ -25,8 +25,8 @@ const Home: NextPage = () => {
               alignItems="center" 
               bg="white" 
               justifyContent="center" 
-              minH={{base: "75vh", sm: "50vh", md: "50vh", lg: "50vh"}} 
-              minW={{base: "75vw", sm: "60vw", md: "60vw", lg: "50vw"}}>
+              minH={{base: "75vh", sm: "50vh", md: "60vh", lg: "50vh", xl: "60vh"}} 
+              minW={{base: "75vw", sm: "60vw", md: "60vw", lg: "50vw", xl: "60vh"}}>
 
                 <SimpleGrid spacingY="2rem">
                     <SimpleGrid spacingY="1rem" textAlign="center" fontSize="xl">
