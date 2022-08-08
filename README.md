@@ -20,4 +20,5 @@ Acesse o projeto atráves do [http://localhost:3000](http://localhost:3000).
 ## Rotas do Projeto
 
 [http://localhost:3000]
+e
 [http://localhost:3000/randcards]
