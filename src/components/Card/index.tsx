@@ -1,5 +1,4 @@
 import { Flex, Image, Text } from '@chakra-ui/react';
-import cardBackWards from '../../../public/card-backwards.svg';
 
 interface CardProps {
     cardRevealed: {
@@ -24,7 +23,6 @@ export function Card({cardRevealed}: CardProps) {
                 borderRadius="xl"
                 bgColor="secondary.500"
                 flexDirection="column"
-                backgroundImage={cardBackWards}
             >
                 <Text fontWeight="bold" fontSize="xl">{cardRevealed.name}</Text>
                 <Image borderRadius='full' src={cardRevealed.image} width="90%" height="50%" alt={cardRevealed.name} mt="1rem"></Image>
