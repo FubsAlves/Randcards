@@ -15,22 +15,23 @@ export function Header() {
     
 
     return (
-        <Flex height="3rem" justifyContent="end" alignItems="center" mr={5}>
-                <Fade in={isOpen}>
-                    <Box
-                            
-                            width="min"
-                            border="none"
-                            boxShadow="lg"
-                            borderRadius="full"
-                            borderColor="orange.800"
-                            padding={2}
-                            bgColor="white"
-                        >
-                            <Text fontWeight="bold" color="primary.900">{userName}</Text>
-                    </Box> 
-                </Fade>
-               
+        <Flex h="3rem" w="100vw" justifyContent="center">
+                <Flex w="75vw" justifyContent="end">
+                    <Fade in={isOpen}>
+                        <Box     
+                                width="min"
+                                border="none"
+                                boxShadow="lg"
+                                borderRadius="full"
+                                borderColor="orange.800"
+                                padding={2}
+                                mr={3}
+                                bgColor="white"
+                            >
+                                <Text fontWeight="bold" whiteSpace="nowrap" color="primary.900">{userName}</Text>
+                        </Box> 
+                    </Fade>
+                </Flex>
         </Flex>
     )
 }

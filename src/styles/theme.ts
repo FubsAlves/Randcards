@@ -2,10 +2,12 @@ import { extendTheme } from "@chakra-ui/react";
 
 export const THEME = extendTheme({
     styles: {
-        global: (props: { colorMode: string; }) => ({
+        global: () => ({
           'html, body': {
             bg: "ECF0F3",
+            flex: {margin: 0, padding: 0}
           },
+          
         })
     },
 

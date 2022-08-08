@@ -1,4 +1,5 @@
 import { Flex, Image, Text } from '@chakra-ui/react';
+import cardBackWards from '../../../public/card-backwards.svg';
 
 interface CardProps {
     cardRevealed: {
@@ -12,22 +13,23 @@ interface CardProps {
     
   }
 
-export function Card({cardRevealed, ...rest}: CardProps) {
+export function Card({cardRevealed}: CardProps) {
     return (
         <>
             <Flex
-                h="17rem"
-                w="15rem"
+                h={ { base: "17rem", sm: "15rem", md: "17rem", lg: "19.5rem" } } 
+                w={ { base: "9rem", sm: "10rem", md: "10rem", lg: "15rem" } }
                 alignItems="center"
+                justifyContent="space-between"
                 borderRadius="xl"
                 bgColor="secondary.500"
                 flexDirection="column"
-                id={cardRevealed.id}
+                backgroundImage={cardBackWards}
             >
                 <Text fontWeight="bold" fontSize="xl">{cardRevealed.name}</Text>
-                <Image src={cardRevealed.image} width="90%" height="60%" alt="exemplo" mt="1rem"></Image>
-                <Text my="0.5rem">{cardRevealed.description}</Text>
-                <Text fontWeight="bold">{cardRevealed.points}</Text>
+                <Image borderRadius='full' src={cardRevealed.image} width="90%" height="50%" alt={cardRevealed.name} mt="1rem"></Image>
+                <Text my="0.5rem" textAlign="center">{cardRevealed.description}</Text>
+                <Text fontWeight="bold">{cardRevealed.points} pt</Text>
             </Flex>    
         </>
     )

@@ -14,7 +14,7 @@ interface CardProps {
 }
 
 interface RandomCardsContextData {
-  cards: any;
+  cards: CardProps[];
   setCards: any;
 }
 
@@ -36,3 +36,4 @@ export function useRandomCards(): RandomCardsContextData {
 
   return context;
 }
+
