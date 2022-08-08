@@ -1,4 +1,4 @@
-import { Flex, Text, SimpleGrid, Button as ChakraButton, Grid, Spinner } from '@chakra-ui/react';
+import { Flex, Grid, Spinner } from '@chakra-ui/react';
 import { useEffect, useRef, useState } from 'react';
 import { Card } from '../Card';
 
@@ -68,14 +68,6 @@ export function CardWindow() {
     setCards((cards: CardProps[]) => [...cards, fetchedCard]);    
 
     }
-  }
-
-  function shuffleCards(cards: CardProps[]) {
-      let shuffledCards = [...cards];
-
-      shuffledCards = shuffledCards.sort(() => Math.random() - 0.5);
-      setCards(shuffledCards);
-      
   }
 
   useEffect(() => {

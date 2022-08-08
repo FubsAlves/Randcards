@@ -3,6 +3,7 @@ import { Flex, Text, Input, SimpleGrid, Button as ChakraButton } from '@chakra-u
 import type { NextPage } from 'next'
 import Link from 'next/link';
 import { useState } from 'react';
+import { useRandomCards } from '../hooks/useRandomCards';
 
 import { useUserName } from '../hooks/useUserName';
     
@@ -10,7 +11,8 @@ import { useUserName } from '../hooks/useUserName';
 const Home: NextPage = () => {
     
   const { setUserName } = useUserName();
-  const [buttonLoading, toggleButtonLoading] = useState<boolean>(false);
+  const [buttonLoading, toggleButtonLoading] = useState<boolean>(false); 
+  const { setViewingCards } = useRandomCards();
 
   return (
     
@@ -59,6 +61,8 @@ const Home: NextPage = () => {
                               type="submit"
                               onClick={() => {
                                 toggleButtonLoading(true);
+                                setViewingCards(true);
+                                
                               }}
                               
                             > 
